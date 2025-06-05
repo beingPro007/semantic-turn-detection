@@ -7,8 +7,8 @@ from typing import Any
 class EndOfTurnModel:
     HF_MODEL_ID = "HuggingFaceTB/SmolLM2-360M-Instruct"
 
-    MAX_HISTORY = 4     # Maximum number of messages to consider in history
-    DEFAULT_THRESHOLD = 0.03    # Default probability threshold for determining end of turn
+    MAX_HISTORY = 6    # Maximum number of messages to consider in history
+    DEFAULT_THRESHOLD = 0.05   # Default probability threshold for determining end of turn
 
     def __init__(self, threshold: float = DEFAULT_THRESHOLD):
         self.threshold = threshold
@@ -209,7 +209,7 @@ def main():
         {"role": "user", "content": "I have a problem with my card."}
     ]
     is_eot2 = model.predict_eot(conversation2)
-    print(f"Conversation 2 - Is EOT? {is_eot2}")  # Expected: True
+    print(f"Conversation 2 - Is EOT? {is_eot2}")
 
 
 if __name__ == "__main__":
